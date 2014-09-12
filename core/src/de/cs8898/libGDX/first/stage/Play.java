@@ -6,9 +6,11 @@ import de.cs8898.libGDX.first.handlers.GameStageManager;
 
 public class Play extends GameStage{
 
-	private BitmapFont font = new BitmapFont();
+	private BitmapFont font = new BitmapFont(Gdx.files.internal("data/nameOfFont.fnt"),
+         Gdx.files.internal("data/nameOfFont.png"), false);
 
 	public Play(GameStageManager gsm){
+		sb.setProjectionMatrix(cam.combined);
 		super(gsm);
 	}
 	
@@ -17,7 +19,6 @@ public class Play extends GameStage{
 	public void update(float dt) {}
 	
 	public void render() {
-		sb.setProjectionMatrix(cam.combined);
 		sb.begin();
 		font.draw(sb,"PLAY Stage",100,100);
 		sb.end();
